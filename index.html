@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081426">
+  <title>ScienceVerse | عالم العلوم المتكامل</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home">
+      <span class="brand-icon">⚗</span>
+      <span>Science<span class="brand-accent">Verse</span><small>عالم العلوم المتكامل</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+    <nav id="mainNav">
+      <a href="#home">الرئيسية</a>
+      <a href="#labs">المعامل الافتراضية</a>
+      <a href="#environment">البيئة</a>
+      <a href="#quizzes">الاختبارات</a>
+      <a href="#thanks">شكر وتقدير</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="live-dot"></span> اكتشف العلم بالتجربة</div>
+        <h1>العلم مش بس<br><span class="gradient-text">معلومات بتحفظها!</span></h1>
+        <p>ادخل المعمل الافتراضي، جرّب بنفسك، غيّر المواد والظروف، وشوف العلم بيشتغل إزاي قدام عينيك.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#labs">ابدأ التجارب <span>←</span></a>
+          <a class="btn btn-outline" href="#quizzes">اختبر معلوماتك</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>14</strong><span>درس علمي</span></div>
+          <div><strong>14</strong><span>معمل افتراضي</span></div>
+          <div><strong>140</strong><span>سؤال تدريبي</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="رسم توضيحي للعلوم">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="planet">⚛</div>
+        <div class="float-card card-water">💧 <span>الماء</span></div>
+        <div class="float-card card-leaf">🌱 <span>الحياة</span></div>
+        <div class="float-card card-air">🌎 <span>البيئة</span></div>
+        <div class="hero-caption">EXPLORE · EXPERIMENT · DISCOVER</div>
+      </div>
+    </section>
+
+    <section class="section intro-section">
+      <div class="section-heading">
+        <span class="eyebrow">رحلتك العلمية</span>
+        <h2>من المعلومة إلى <span class="gradient-text">الاكتشاف</span></h2>
+        <p>اتعلم الفكرة، نفّذ التجربة الافتراضية، وبعدها اختبر نفسك.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><span class="feature-icon">🧪</span><h3>جرّب بنفسك</h3><p>اختار الأدوات والمواد ونفّذ خطوات التجربة التفاعلية.</p></article>
+        <article class="feature-card"><span class="feature-icon">🔍</span><h3>لاحظ النتيجة</h3><p>تابع التغييرات وافهم العلاقة بين السبب والنتيجة.</p></article>
+        <article class="feature-card"><span class="feature-icon">🎯</span><h3>اختبر فهمك</h3><p>جاوب عن أسئلة كل درس واعرف درجتك فورًا.</p></article>
+      </div>
+    </section>
+
+    <section class="section labs-section" id="labs">
+      <div class="section-heading">
+        <span class="eyebrow">VIRTUAL LABORATORY</span>
+        <h2>المعامل <span class="gradient-text">الافتراضية</span></h2>
+        <p>اختار أي درس وادخل معمله. كل معمل فيه أدوات وتفاعلات تناسب فكرته العلمية.</p>
+      </div>
+      <div class="toolbar">
+        <label class="search-box"><span>⌕</span><input id="lessonSearch" type="search" placeholder="ابحث عن درس..."></label>
+        <select id="lessonSelect" aria-label="ترتيب الدروس">
+          <option value="all">كل الدروس الـ14</option>
+          <option value="water">الماء والبيئة المائية</option>
+          <option value="atmosphere">الغلاف الجوي</option>
+        </select>
+      </div>
+      <div class="lesson-grid" id="labGrid"></div>
+      <section class="lab-workspace hidden" id="labWorkspace">
+        <div class="workspace-heading">
+          <div><span class="eyebrow">داخل المعمل</span><h2 id="labTitle">المعمل الافتراضي</h2><p id="labIntro"></p></div>
+          <button class="icon-button" id="closeLab" aria-label="إغلاق المعمل">✕</button>
+        </div>
+        <div class="lab-layout">
+          <div class="lab-bench">
+            <div class="bench-top"><span>SCIENCEVERSE LAB</span><span class="status-pill"><i></i> محاكاة تفاعلية</span></div>
+            <div id="experimentScene" class="experiment-scene"></div>
+            <div class="observation-panel">
+              <div class="observation-icon">🔬</div>
+              <div><strong>الملاحظة العلمية</strong><p id="observationText">اختار الأدوات وابدأ التجربة.</p></div>
+            </div>
+          </div>
+          <aside class="control-panel">
+            <h3>🧰 أدوات التجربة</h3>
+            <div id="experimentControls"></div>
+            <button class="btn btn-primary full-width" id="runExperiment">نفّذ التجربة</button>
+            <button class="btn btn-outline full-width" id="resetExperiment">إعادة التجربة ↻</button>
+            <p class="small-note">المعمل نموذج تعليمي مبسط. اتبع تعليمات المعلم عند إجراء التجارب الحقيقية.</p>
+          </aside>
+        </div>
+        <div class="concept-box"><span>💡</span><div><strong>إيه اللي اتعلمناه؟</strong><p id="conceptText">نفّذ التجربة علشان تشوف الفكرة العلمية.</p></div></div>
+      </section>
+    </section>
+
+    <section class="section environment-section" id="environment">
+      <div class="section-heading">
+        <span class="eyebrow">OUR BLUE PLANET</span>
+        <h2>العلم من أجل <span class="gradient-text">البيئة</span></h2>
+        <p>كل تغيير في الماء والهواء ممكن يؤثر في حياة كائنات كتير. افهم التأثير وفكّر في الحل.</p>
+      </div>
+      <div class="environment-grid">
+        <article class="environment-card water-card"><div class="environment-emoji">🌊</div><span class="tag">البيئة المائية</span><h3>كل قطرة بتفرق</h3><p>تعرّف على تأثير التلوث والحرارة والأكسجين في الكائنات المائية.</p><button class="text-button" data-open-lesson="9">اكتشف التجربة ←</button></article>
+        <article class="environment-card air-card"><div class="environment-emoji">🌍</div><span class="tag">الغلاف الجوي</span><h3>هواء أنظف لمستقبل أفضل</h3><p>افهم دور الغازات والأنشطة البشرية في حالة الغلاف الجوي.</p><button class="text-button" data-open-lesson="12">اكتشف التجربة ←</button></article>
+        <article class="environment-card green-card"><div class="environment-emoji">🌱</div><span class="tag">الاستدامة</span><h3>خليك جزء من الحل</h3><p>حافظ على الماء والطاقة، وقلل المخلفات، وادعم التوازن البيئي.</p><button class="text-button" data-open-lesson="10">اكتشف التجربة ←</button></article>
+      </div>
+      <div class="eco-tip"><span>🌟</span><p><strong>تحدي العالم الصغير:</strong> اختار تصرفًا واحدًا تقدر تعمله النهارده لتقليل هدر المياه أو الطاقة.</p></div>
+    </section>
+
+    <section class="section quizzes-section" id="quizzes">
+      <div class="section-heading">
+        <span class="eyebrow">TEST YOUR KNOWLEDGE</span>
+        <h2>اختبر <span class="gradient-text">معلوماتك</span></h2>
+        <p>كل درس له اختبار مستقل من 10 أسئلة. اختار الإجابة واعرف النتيجة بعد التسليم.</p>
+      </div>
+      <div class="quiz-summary"><span>📝</span><div><strong>14 اختبارًا · 140 سؤالًا</strong><p>اختار الدرس اللي عايز تراجع عليه.</p></div></div>
+      <div class="lesson-grid quiz-grid" id="quizGrid"></div>
+      <section class="quiz-workspace hidden" id="quizWorkspace">
+        <div class="workspace-heading">
+          <div><span class="eyebrow">اختبار الدرس</span><h2 id="quizTitle"></h2><p id="quizSubtitle">10 أسئلة — اختار إجابة واحدة لكل سؤال.</p></div>
+          <button class="icon-button" id="closeQuiz" aria-label="إغلاق الاختبار">✕</button>
+        </div>
+        <div class="quiz-progress-track"><div id="quizProgress"></div></div>
+        <form id="quizForm">
+          <div id="quizQuestions"></div>
+          <button type="submit" class="btn btn-primary full-width">تسليم الإجابات وحساب الدرجة</button>
+        </form>
+        <div id="quizResult" class="quiz-result hidden" aria-live="polite"></div>
+        <button id="retryQuiz" class="btn btn-outline full-width hidden">إعادة الاختبار ↻</button>
+      </section>
+    </section>
+
+    <section class="section thanks-section" id="thanks">
+      <div class="thanks-decoration">✦</div>
+      <div class="thanks-content">
+        <span class="eyebrow">WITH GRATITUDE</span>
+        <div class="thanks-icon">🎓</div>
+        <h2>شكرًا لأنك بتخلّي <span class="gradient-text">العلم رحلة ممتعة</span></h2>
+        <p>إلى معلمنا الفاضل، تقديرًا لمجهودك واهتمامك، ولأنك بتساعدنا نفهم ونكتشف ونسأل ونفكر. شكرًا لكل معلومة علمتنا إياها، ولكل تجربة فتحت لنا بابًا جديدًا للمعرفة.</p>
+        <div class="teacher-name">مستر الشامل</div>
+        <div class="thanks-signature">مع خالص الشكر والتقدير ❤️</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-icon">⚗</span><span>Science<span class="brand-accent">Verse</span></span></a>
+    <p>نتعلم بالتجربة، ونكتشف بالفضول، ونحافظ على كوكبنا بالعلم.</p>
+    <a href="#home" class="back-top" aria-label="العودة للأعلى">↑</a>
+    <small>ScienceVerse · مشروع تعليمي للعلوم المتكاملة</small>
+  </footer>
+</body>
+</html>
